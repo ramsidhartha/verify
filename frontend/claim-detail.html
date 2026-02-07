@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Detail - Verifi Protocol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .claim-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .confidence-score {
+            text-align: right;
+        }
+
+        .confidence-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .confidence-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+
+        .verification-complete {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid #86efac;
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .verification-complete-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .verification-complete h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .verification-complete p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .verification-hash {
+            font-family: monospace;
+            font-size: 13px;
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .network-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .network-stat:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Verifi Protocol</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Overview</a>
+            <a href="marketplace.html" class="active">Task Marketplace</a>
+            <a href="new-request.html">New Request</a>
+            <a href="identity.html">Identity</a>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-500);">connected as 0x12...89</span>
+    </nav>
+
+    <div class="container" style="padding-top: 32px;">
+        <!-- Breadcrumb -->
+        <div style="margin-bottom: 24px;">
+            <span class="badge badge-progress">Verification in Progress</span>
+            <span style="margin-left: 12px; font-size: 14px; color: var(--gray-500);">ID: #C-99210</span>
+        </div>
+
+        <div class="claim-header">
+            <div>
+                <h1 style="font-size: 28px; margin-bottom: 8px;">Zero-Knowledge Rollup Compression Benchmark</h1>
+                <p style="color: var(--gray-600);">Claim: "Compression ratio > 40x on transaction batches > 1MB using
+                    modified DEFLATE."</p>
+            </div>
+            <div class="confidence-score">
+                <div class="confidence-value">75%</div>
+                <div class="confidence-label">Confidence Score</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar" style="height: 10px;">
+            <div class="progress-fill" style="width: 75%;"></div>
+        </div>
+        <div
+            style="display: flex; justify-content: space-between; font-size: 13px; color: var(--gray-500); margin-bottom: 32px;">
+            <span>3 of 4 Verification Tasks Completed</span>
+            <span>Est. completion: 2 hours</span>
+        </div>
+
+        <div class="two-column">
+            <!-- Main Content -->
+            <div>
+                <!-- Verification Plan -->
+                <div class="card" style="margin-bottom: 24px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+                        <h3>Verification Plan</h3>
+                        <span
+                            style="background: var(--gray-100); padding: 4px 8px; border-radius: 4px; font-size: 11px;">🤖
+                            AI GENERATED</span>
+                    </div>
+
+                    <div class="verification-step">
+                        <div class="step-content" style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4>Reproduce Compression Ratio</h4>
+                                <span class="badge badge-verified">Verified</span>
+                            </div>
+                            <p>Run benchmark script on standard corpus (Calgary, Silesia).</p>
+                            <span style="font-size: 12px; color: var(--gray-400);">Build: Passing | Validators:
+                                5/5</span>
+                        </div>
+                        <div class="step-status">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="#22c55e" />
+                                <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="verification-step">
+                        <div class="step-content" style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4>Code Correctness Analysis</h4>
+                                <span class="badge badge-verified">Verified</span>
+                            </div>
+                            <p>Static analysis for memory safety and buffer overflows.</p>
+                            <span style="font-size: 12px; color: var(--gray-400);">Vulns found: 0 | Validators:
+                                3/3</span>
+                        </div>
+                        <div class="step-status">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="#22c55e" />
+                                <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="verification-step active">
+                        <div class="step-content" style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4>Performance Profiling</h4>
+                                <span class="badge badge-progress">In Progress</span>
+                            </div>
+                            <p>Execution time measurement on constrained hardware (Raspberry Pi 4).</p>
+                            <span style="font-size: 12px; color: var(--gray-400);">Validators: 2/5 (Reporting)</span>
+                        </div>
+                        <div class="step-status">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#0ea5e9" stroke-width="2" fill="none" />
+                                <path d="M12 6v6l4 2" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="verification-step">
+                        <div class="step-content" style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4>Final Consensus</h4>
+                                <span class="badge badge-pending">Pending</span>
+                            </div>
+                            <p>Aggregation of validator signatures and reputation weighting.</p>
+                        </div>
+                        <div class="step-status">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#d1d5db" stroke-width="2" fill="none" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification Complete Box -->
+                <div class="verification-complete">
+                    <div class="verification-complete-icon">🏆</div>
+                    <h3>Verification Complete</h3>
+                    <p>This technical claim has been independently verified by the Verifi Network.</p>
+                    <div class="verification-hash">0x71c...92f1</div>
+                    <div style="display: flex; justify-content: center; gap: 16px;">
+                        <button class="btn btn-primary">Download Certificate</button>
+                        <button class="btn btn-secondary">View On-Chain Proof</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Claim Metadata -->
+                <div class="sidebar-card">
+                    <h4>Claim Metadata</h4>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-500);">SUBMITTED BY</span>
+                        <span style="font-size: 14px; font-weight: 500;">alex_dev.eth</span>
+                    </div>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-500);">ARTIFACTS</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 13px; color: var(--accent);">📁 compression-lib-v2</div>
+                            <div style="font-size: 13px; color: var(--accent);">📄 Benchmarks.log</div>
+                        </div>
+                    </div>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-500);">ENVIRONMENT</span>
+                        <span style="font-size: 14px;">Rust 1.75, x86_64, Linux</span>
+                    </div>
+                </div>
+
+                <!-- Network Stats -->
+                <div class="sidebar-card">
+                    <h4>Network Stats</h4>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-600);">Participating Validators</span>
+                        <span style="font-size: 14px; font-weight: 600;">13</span>
+                    </div>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-600);">Reputation Staked</span>
+                        <span style="font-size: 14px; font-weight: 600;">1,250 REP</span>
+                    </div>
+                    <div class="network-stat">
+                        <span style="font-size: 14px; color: var(--gray-600);">Est. Reliability</span>
+                        <span style="font-size: 14px; font-weight: 600; color: var(--success);">High</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2024 Verifi Foundation.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

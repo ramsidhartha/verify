@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity - Verifi Protocol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .identity-alert {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 14px;
+            color: #92400e;
+        }
+
+        .identity-alert strong {
+            color: #b45309;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .tier-badge {
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .on-chain-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .on-chain-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .on-chain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .on-chain-item label {
+            font-size: 12px;
+            color: var(--gray-500);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .on-chain-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .reliability-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .reliability-item {
+            text-align: center;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+        }
+
+        .reliability-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .reliability-label {
+            font-size: 11px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+
+        .verification-history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+        }
+
+        .verification-history-item h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .verification-history-item p {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            margin-bottom: 8px;
+        }
+
+        .credential-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .credential-item h5 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .credential-item p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Verifi Protocol</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Overview</a>
+            <a href="marketplace.html">Task Marketplace</a>
+            <a href="new-request.html">New Request</a>
+            <a href="identity.html" class="active">Identity</a>
+        </div>
+        <button class="btn btn-secondary">Connect Wallet (Amoy)</button>
+    </nav>
+
+    <!-- Alert -->
+    <div class="identity-alert">
+        <strong>Protocol Rule:</strong> You cannot validate your own claims. Switching roles is automatic based on
+        context.
+    </div>
+
+    <div class="container" style="padding-top: 32px;">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar">VB</div>
+            <div class="profile-info">
+                <h2>vitalik.eth <span class="badge badge-verified" style="margin-left: 8px;">Core Validator</span></h2>
+                <p>0xd8dA...6045</p>
+                <div class="profile-badges">
+                    <span class="tier-badge">Tier V - Protocol Guardian</span>
+                </div>
+            </div>
+            <div class="verifi-score">
+                <div style="display: flex; gap: 24px; align-items: flex-end;">
+                    <div>
+                        <div class="score-label">VERIFI INDEX</div>
+                        <div class="score-value">98.4</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--gray-500); text-align: right;">
+                        <div>99.2% Accuracy</div>
+                        <div>&lt;1% Dispute Rate</div>
+                        <div>98% Consensus Match</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- On-Chain Identity -->
+        <div class="on-chain-card">
+            <div class="on-chain-header">
+                <h4 style="font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                    ON-CHAIN IDENTITY ANCHOR (TESTNET)</h4>
+                <span class="badge badge-pending">Testnet</span>
+            </div>
+            <div class="on-chain-grid">
+                <div class="on-chain-item">
+                    <label>Network</label>
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        <span style="width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%;"></span>
+                        Polygon Amoy Testnet
+                    </span>
+                </div>
+                <div class="on-chain-item">
+                    <label>Soulbound Token</label>
+                    <span style="color: var(--accent);">Minted (ID: 8420)</span>
+                </div>
+                <div class="on-chain-item">
+                    <label>Since Block</label>
+                    <span>5,438,181</span>
+                </div>
+            </div>
+            <div style="text-align: right; margin-top: 16px;">
+                <a href="#" style="font-size: 14px; color: var(--accent);">View on Polygonscan →</a>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <!-- Left Column -->
+            <div>
+                <!-- Validator Activity -->
+                <div class="card" style="margin-bottom: 24px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3>Validator Activity</h3>
+                        <div style="font-size: 13px; color: var(--gray-500);">
+                            <strong>245</strong> active days | <strong>42</strong> day streak
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 16px;">Consistency over the past
+                        12 months</p>
+
+                    <!-- Activity Heatmap -->
+                    <div class="activity-grid">
+                        <script>
+                            // Generate random activity cells
+                            for (let i = 0; i < 364; i++) {
+                                let level = Math.floor(Math.random() * 5);
+                                document.write(`<div class="activity-cell level-${level}"></div>`);
+                            }
+                        </script>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-top: 8px;">
+                        <span style="font-size: 11px; color: var(--gray-500);">Less</span>
+                        <div class="activity-cell"></div>
+                        <div class="activity-cell level-1"></div>
+                        <div class="activity-cell level-2"></div>
+                        <div class="activity-cell level-3"></div>
+                        <div class="activity-cell level-4"></div>
+                        <span style="font-size: 11px; color: var(--gray-500);">More</span>
+                    </div>
+                </div>
+
+                <!-- Domain Expertise -->
+                <div class="card" style="margin-bottom: 24px;">
+                    <h3 style="margin-bottom: 16px;">Domain Expertise</h3>
+
+                    <div class="expertise-item">
+                        <span style="font-size: 14px; width: 180px;">Protocol Security</span>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 95%;"></div>
+                        </div>
+                        <span class="badge badge-verified">Expert</span>
+                    </div>
+                    <div class="expertise-item">
+                        <span style="font-size: 14px; width: 180px;">Zero-Knowledge Cryptography</span>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 80%;"></div>
+                        </div>
+                        <span class="badge badge-progress">Advanced</span>
+                    </div>
+                    <div class="expertise-item">
+                        <span style="font-size: 14px; width: 180px;">Distributed Systems</span>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 65%;"></div>
+                        </div>
+                        <span class="badge badge-pending">Intermediate</span>
+                    </div>
+                    <div class="expertise-item">
+                        <span style="font-size: 14px; width: 180px;">EVM Optimization</span>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 90%;"></div>
+                        </div>
+                        <span class="badge badge-verified">Expert</span>
+                    </div>
+                </div>
+
+                <!-- Verification History -->
+                <div class="card">
+                    <h3 style="margin-bottom: 24px;">Verification History</h3>
+
+                    <h4
+                        style="font-size: 12px; text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px;">
+                        SECURITY AUDITS <span style="float: right;">42 Verifications</span></h4>
+
+                    <div class="verification-history-item">
+                        <div>
+                            <h4>Cross-Chain Bridge Vulnerability Check</h4>
+                            <p>Bridge Protocol v3 • ID: #V-8801</p>
+                            <span style="font-size: 11px; color: var(--gray-400);">🤖 AI-generated verification
+                                task</span>
+                        </div>
+                        <span class="badge badge-verified">Verified</span>
+                    </div>
+
+                    <div class="verification-history-item">
+                        <div>
+                            <h4>Reentrancy Guard Analysis</h4>
+                            <p>DEX Aggregator • ID: #V-8750</p>
+                            <span style="font-size: 11px; color: var(--gray-400);">🤖 AI-generated verification
+                                task</span>
+                        </div>
+                        <span class="badge badge-verified">Verified</span>
+                    </div>
+
+                    <h4
+                        style="font-size: 12px; text-transform: uppercase; color: var(--gray-500); margin: 24px 0 16px;">
+                        PERFORMANCE BENCHMARKS <span style="float: right;">10 Verifications</span></h4>
+
+                    <div class="verification-history-item">
+                        <div>
+                            <h4>L2 State Transition Latency</h4>
+                            <p>Optimism Fork • ID: #V-8620</p>
+                            <span style="font-size: 11px; color: var(--gray-400);">🤖 AI-generated verification
+                                task</span>
+                        </div>
+                        <span class="badge badge-verified">Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Reliability Schema -->
+                <div class="sidebar-card">
+                    <h4>Reliability Schema</h4>
+                    <div class="reliability-grid">
+                        <div class="reliability-item">
+                            <div class="reliability-value">1,240</div>
+                            <div class="reliability-label">Completed</div>
+                        </div>
+                        <div class="reliability-item">
+                            <div class="reliability-value" style="color: var(--success);">99.2%</div>
+                            <div class="reliability-label">Accuracy</div>
+                        </div>
+                        <div class="reliability-item">
+                            <div class="reliability-value">3</div>
+                            <div class="reliability-label">Disputed</div>
+                        </div>
+                        <div class="reliability-item">
+                            <div class="reliability-value" style="color: var(--accent);">98%</div>
+                            <div class="reliability-label">Match Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reputation Breakdown -->
+                <div class="sidebar-card">
+                    <h4>Reputation Breakdown</h4>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-size: 14px; color: var(--gray-600);">Security REP</span>
+                        <span style="font-size: 14px; font-weight: 600;">8,450</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-size: 14px; color: var(--gray-600);">ZKP / Crypto REP</span>
+                        <span style="font-size: 14px; font-weight: 600;">3,200</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                        <span style="font-size: 14px; color: var(--gray-600);">Performance REP</span>
+                        <span style="font-size: 14px; font-weight: 600;">1,100</span>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--gray-200);">
+                        <span style="font-size: 14px; font-weight: 600;">Total Protocol REP</span>
+                        <span style="font-size: 18px; font-weight: 700; color: var(--accent);">12,750 REP</span>
+                    </div>
+                </div>
+
+                <!-- Credentials -->
+                <div class="sidebar-card">
+                    <h4>Credentials</h4>
+
+                    <div class="credential-item">
+                        <div class="credential-icon">🛡️</div>
+                        <div>
+                            <h5>Security Specialist</h5>
+                            <p>>99% consensus match on 20+ security claims.</p>
+                        </div>
+                    </div>
+
+                    <div class="credential-item">
+                        <div class="credential-icon">⚡</div>
+                        <div>
+                            <h5>Efficiency Expert</h5>
+                            <p>Top 5% reporter for benchmarks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2024 Verifi Foundation.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

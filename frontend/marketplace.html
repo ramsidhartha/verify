@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Marketplace - Verifi Protocol</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Verifi Protocol</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Overview</a>
+            <a href="marketplace.html" class="active">Task Marketplace</a>
+            <a href="new-request.html">New Request</a>
+            <a href="identity.html">Identity</a>
+        </div>
+        <button class="btn btn-secondary">Connect Wallet</button>
+    </nav>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Verification Tasks</h1>
+            <p>Open requests requiring peer consensus.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <input type="text" class="search-input" placeholder="Filter by ID, tag, or requester...">
+            <div class="filter-tabs">
+                <button class="filter-tab active">All</button>
+                <button class="filter-tab">Open</button>
+                <button class="filter-tab">Pending</button>
+                <button class="filter-tab">Closed</button>
+            </div>
+            <button class="btn btn-primary" style="margin-left: auto;">Refresh Feed</button>
+        </div>
+
+        <!-- Task Grid -->
+        <div class="task-grid">
+            <!-- Task Card 1 -->
+            <a href="task-detail.html" class="card task-card">
+                <div class="task-card-header">
+                    <div>
+                        <span class="badge badge-open">Open</span>
+                        <span class="badge badge-high" style="margin-left: 8px;">High Priority</span>
+                    </div>
+                </div>
+                <h3>Protocol Implementation: DeFi Lending</h3>
+                <p>Verification of lending logic, liquidation params, and interest rate models for V2 deployment.</p>
+                <div>
+                    <span class="tag">Solidity</span>
+                    <span class="tag">Math</span>
+                    <span class="tag">Security</span>
+                </div>
+                <div class="task-card-footer">
+                    <span class="task-id">ID: #V-8921</span>
+                    <span class="task-reward">Reward: 500 REP</span>
+                </div>
+            </a>
+
+            <!-- Task Card 2 -->
+            <a href="task-detail.html" class="card task-card">
+                <div class="task-card-header">
+                    <div>
+                        <span class="badge badge-reviewing">Reviewing</span>
+                    </div>
+                </div>
+                <h3>ML Model Validation: NFT Pricing</h3>
+                <p>Audit of inference pipeline and data sanitization methods for on-chain oracle.</p>
+                <div>
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Data Science</span>
+                </div>
+                <div class="task-card-footer">
+                    <span class="task-id">ID: #V-8945</span>
+                    <span class="task-reward">Reward: 350 REP</span>
+                </div>
+            </a>
+
+            <!-- Task Card 3 -->
+            <a href="task-detail.html" class="card task-card">
+                <div class="task-card-header">
+                    <div>
+                        <span class="badge badge-open">Open</span>
+                    </div>
+                </div>
+                <h3>ZK-Circuit: Private Voting</h3>
+                <p>Correctness proof for Groth16 verify function and nullifier generation.</p>
+                <div>
+                    <span class="tag">Circom</span>
+                    <span class="tag">Cryptography</span>
+                </div>
+                <div class="task-card-footer">
+                    <span class="task-id">ID: #V-9012</span>
+                    <span class="task-reward">Reward: 750 REP</span>
+                </div>
+            </a>
+
+            <!-- Task Card 4 -->
+            <a href="claim-detail.html" class="card task-card">
+                <div class="task-card-header">
+                    <div>
+                        <span class="badge badge-closed">Archived</span>
+                    </div>
+                </div>
+                <h3>Cross-Chain Bridge Audit</h3>
+                <p>Post-deployment verification of LayerZero endpoint configuration.</p>
+                <div>
+                    <span class="tag">Infrastructure</span>
+                    <span class="tag">Bridge</span>
+                </div>
+                <div class="task-card-footer">
+                    <span class="task-id">ID: #V-8800</span>
+                    <span class="task-reward">Complete</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2024 Verifi Foundation.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

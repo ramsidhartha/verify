@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail - Verifi Protocol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .task-header-card {
+            border-left: 4px solid var(--accent);
+            background: #fff;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--gray-200);
+            border-left: 4px solid var(--accent);
+        }
+
+        .claim-definition {
+            background: var(--gray-50);
+            padding: 16px;
+            border-radius: var(--radius);
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        .evidence-list {
+            list-style: none;
+        }
+
+        .evidence-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray-700);
+            margin-bottom: 8px;
+        }
+
+        .evidence-list li::before {
+            content: "✓";
+            color: var(--gray-400);
+        }
+
+        .accept-button {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .accept-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Verifi Protocol</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Overview</a>
+            <a href="marketplace.html" class="active">Task Marketplace</a>
+            <a href="new-request.html">New Request</a>
+            <a href="identity.html">Identity</a>
+        </div>
+        <button class="btn btn-secondary">Connect Wallet</button>
+    </nav>
+
+    <div class="container" style="padding-top: 32px;">
+        <!-- Back Link -->
+        <a href="marketplace.html"
+            style="font-size: 14px; color: var(--gray-500); display: block; margin-bottom: 24px;">← Back to
+            Marketplace</a>
+
+        <div class="two-column">
+            <!-- Main Content -->
+            <div>
+                <div class="task-header-card">
+                    <span class="badge" style="background: #dbeafe; color: #1d4ed8;">DeFi Protocol</span>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 16px;">
+                        <div>
+                            <h1 style="font-size: 28px; margin-bottom: 8px;">Protocol Implementation: Lending V2</h1>
+                            <p style="color: var(--gray-500); font-size: 14px;">ID: #V-8921 • Submitted by 0x3a...9f • 2
+                                days ago</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 32px; font-weight: 700;">500</div>
+                            <div style="font-size: 12px; color: var(--gray-500);">REP Reward</div>
+                        </div>
+                    </div>
+
+                    <div class="claim-definition">
+                        <strong>Claim Definition</strong><br><br>
+                        Verification of lending logic, liquidation parameters, and interest rate models for V2
+                        deployment. The claim asserts that the interest rate model behaves linearly within the
+                        utilization rate of 0% to 80% and follows a steep exponential curve thereafter.
+                    </div>
+                </div>
+
+                <!-- Work to be Performed -->
+                <div class="card">
+                    <h3 style="margin-bottom: 24px;">Work to be Performed</h3>
+
+                    <div
+                        style="background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                            <span style="font-size: 18px;">🤖</span>
+                            <strong>AI-Generated Subtask</strong>
+                        </div>
+                        <p style="font-size: 14px; color: var(--gray-700); line-height: 1.7;">
+                            Execute the <code
+                                style="background: var(--gray-200); padding: 2px 6px; border-radius: 3px;">check_interest_model.py</code>
+                            script provided in the artifacts against the deployed testnet contract. Verify that for
+                            'utilization > 80%', the rate multiplier increases by a factor of 3x per 10% utilization
+                            increase.
+                        </p>
+                    </div>
+
+                    <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Evidence Required</h4>
+                    <ul class="evidence-list">
+                        <li>Execution logs showing input parameters and returned rates.</li>
+                        <li>Transaction hash of the test execution on Amoy Testnet.</li>
+                        <li>Signed verification statement.</li>
+                    </ul>
+
+                    <button class="btn btn-primary accept-button" style="margin-top: 24px;">
+                        Accept Task & Begin Verification
+                    </button>
+                    <p class="accept-note">By accepting, you stake reputation on the accuracy of your results.</p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- Task Metadata -->
+                <div class="sidebar-card">
+                    <h4>Task Metadata</h4>
+                    <div class="network-stat"
+                        style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                        <span style="font-size: 14px; color: var(--gray-600);">Difficulty</span>
+                        <span style="font-size: 14px; font-weight: 600;">Intermediate</span>
+                    </div>
+                    <div class="network-stat"
+                        style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                        <span style="font-size: 14px; color: var(--gray-600);">Est. Time</span>
+                        <span style="font-size: 14px; font-weight: 600;">2-4 Hours</span>
+                    </div>
+                    <div class="network-stat" style="display: flex; justify-content: space-between; padding: 12px 0;">
+                        <span style="font-size: 14px; color: var(--gray-600);">Validators Needed</span>
+                        <span style="font-size: 14px; font-weight: 600;">2 of 3</span>
+                    </div>
+                </div>
+
+                <!-- AI Alert -->
+                <div class="alert alert-warning">
+                    <h4>⚠️ AI Alert</h4>
+                    <p>The claim author has a new account with limited history. Ensure rigorous checking of the
+                        repository for hidden obfuscated code.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2024 Verifi Foundation.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
