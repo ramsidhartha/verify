@@ -1,15 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Website design for developers</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Verifi - Web3 gamified platform for verifying technical claims and earning trust scores">
+  <title>Verifi - Verify Claims, Earn Trust</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="index.html" class="navbar-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" stroke="url(#logoGrad)" stroke-width="4" />
+            <path d="M30 50 L45 65 L70 35" stroke="url(#logoGrad)" stroke-width="6" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8B5CF6" />
+                <stop offset="100%" stop-color="#06B6D4" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Verifi</span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="quests.html" class="nav-link">Quests</a>
+        <a href="submit.html" class="nav-link">Submit Claim</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="btn btn-secondary btn-sm">
+          <span class="wallet-icon">◈</span>
+          Connect Wallet
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Web3 × AI Verification Protocol
+      </div>
+
+      <h1 class="hero-title">
+        Verify Skills.<br>
+        <span class="text-gradient">Earn Trust.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A gamified platform where developers verify technical claims and build
+        on-chain reputation through AI-assisted peer verification.
+      </p>
+
+      <div class="hero-actions">
+        <a href="submit.html" class="btn btn-primary btn-lg">
+          Submit a Claim
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="quests.html" class="btn btn-secondary btn-lg">
+          Explore Quests
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">2,450+</div>
+          <div class="stat-label">Claims Verified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">890+</div>
+          <div class="stat-label">Active Verifiers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">98.5%</div>
+          <div class="stat-label">Accuracy Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">$125K</div>
+          <div class="stat-label">Rewards Distributed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow Section -->
+  <section class="section flow-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>From claim to reputation in four simple steps</p>
+      </div>
+
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <div class="flow-icon">📝</div>
+          <div class="flow-content">
+            <h4>Claim</h4>
+            <p>Submit your technical achievement</p>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">🤖</div>
+          <div class="flow-content">
+            <h4>AI Tasks</h4>
+            <p>AI generates verification checklist</p>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">✅</div>
+          <div class="flow-content">
+            <h4>Verification</h4>
+            <p>Peers complete verification quests</p>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">⭐</div>
+          <div class="flow-content">
+            <h4>Reputation</h4>
+            <p>Earn trust scores & rewards</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for <span class="text-gradient">Builders</span></h2>
+        <p>Everything you need to prove your skills and verify others</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card card">
+          <div class="feature-icon">📝</div>
+          <h3>Submit Claims</h3>
+          <p>Post your technical achievements with evidence links to GitHub, deployed contracts, or live demos.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI-Powered Tasks</h3>
+          <p>Our AI generates targeted verification checklists based on the claim type and complexity.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="feature-icon">✅</div>
+          <h3>Peer Verification</h3>
+          <p>Complete verification quests to validate claims and earn rewards.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="feature-icon">⭐</div>
+          <h3>Build Reputation</h3>
+          <p>Earn trust scores, badges, and tokens as you verify and get verified.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Ready to Build Your Reputation?</h2>
+          <p>Join the decentralized verification network and start earning trust today.</p>
+          <div class="cta-actions">
+            <a href="submit.html" class="btn btn-primary btn-lg">Get Started</a>
+            <a href="quests.html" class="btn btn-outline btn-lg">Browse Quests</a>
+          </div>
+        </div>
+        <div class="cta-decoration">
+          <div class="cta-orb cta-orb-1"></div>
+          <div class="cta-orb cta-orb-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="logo-icon-sm">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="url(#footerGrad)" stroke-width="4" />
+                <path d="M30 50 L45 65 L70 35" stroke="url(#footerGrad)" stroke-width="6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <defs>
+                  <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8B5CF6" />
+                    <stop offset="100%" stop-color="#06B6D4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span>Verifi</span>
+          </a>
+          <p class="footer-tagline">Building trust in Web3, one verification at a time.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Platform</h4>
+            <a href="quests.html">Quest Board</a>
+            <a href="submit.html">Submit Claim</a>
+            <a href="profile.html">Profile</a>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">API</a>
+            <a href="#">SDK</a>
+          </div>
+          <div class="footer-column">
+            <h4>Community</h4>
+            <a href="#">Discord</a>
+            <a href="#">Twitter</a>
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Verifi. Built for B3 Hackathon.</p>
+        <div class="footer-badges">
+          <span class="tech-badge">Web3</span>
+          <span class="tech-badge">AI</span>
+          <span class="tech-badge">ZK</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

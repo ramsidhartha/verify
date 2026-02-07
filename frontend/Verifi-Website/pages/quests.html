@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Marketplace - Verifi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="logo-text">Verifi Protocol</span>
+            </a>
+            <div class="navbar-links">
+                <a href="../index.html" class="nav-link">Overview</a>
+                <a href="quests.html" class="nav-link active">Task Marketplace</a>
+                <a href="submit.html" class="nav-link">New Request</a>
+                <a href="profile.html" class="nav-link">Identity</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="btn btn-secondary btn-sm">Connect Wallet</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header-flex">
+                <div class="header-content">
+                    <h1>Verification Tasks</h1>
+                    <p>Open requests requiring peer consensus.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary btn-sm">Refresh Feed</button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Filter by ID, tag, or requester..." class="search-input">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Open</button>
+                    <button class="filter-tab">Pending</button>
+                    <button class="filter-tab">Closed</button>
+                </div>
+            </div>
+
+            <!-- Task Grid -->
+            <div class="quest-grid">
+                <!-- Task Card 1 -->
+                <a href="task-detail.html" class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-green">Open</span>
+                            <span class="badge badge-purple">High Priority</span>
+                        </div>
+                    </div>
+                    <div class="quest-title">Protocol Implementation: DeFi Lending</div>
+                    <p class="quest-description">Verification of lending logic, liquidation params, and interest rate
+                        models for V2 deployment.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Solidity</span>
+                        <span class="quest-tag">Math</span>
+                        <span class="quest-tag">Security</span>
+                    </div>
+                    <div class="quest-footer">
+                        <span>ID: #V-8921</span>
+                        <span>Reward: 500 REP</span>
+                    </div>
+                </a>
+
+                <!-- Task Card 2 -->
+                <a href="task-detail.html" class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-orange">Reviewing</span>
+                        </div>
+                    </div>
+                    <div class="quest-title">ML Model Validation: NFT Pricing</div>
+                    <p class="quest-description">Audit of inference pipeline and data sanitization methods for on-chain
+                        oracle.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Python</span>
+                        <span class="quest-tag">TensorFlow</span>
+                        <span class="quest-tag">Data Science</span>
+                    </div>
+                    <div class="quest-footer">
+                        <span>ID: #V-8945</span>
+                        <span>Reward: 350 REP</span>
+                    </div>
+                </a>
+
+                <!-- Task Card 3 -->
+                <a href="task-detail.html" class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-green">Open</span>
+                        </div>
+                    </div>
+                    <div class="quest-title">ZK-Circuit: Private Voting</div>
+                    <p class="quest-description">Correctness proof for Groth16 verify function and nullifier generation.
+                    </p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Circom</span>
+                        <span class="quest-tag">Cryptography</span>
+                    </div>
+                    <div class="quest-footer">
+                        <span>ID: #V-9012</span>
+                        <span>Reward: 750 REP</span>
+                    </div>
+                </a>
+
+                <!-- Task Card 4 -->
+                <a href="task-detail.html" class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-cyan">Archived</span>
+                        </div>
+                    </div>
+                    <div class="quest-title">Cross-Chain Bridge Audit</div>
+                    <p class="quest-description">Post-deployment verification of LayerZero endpoint configuration.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Infrastructure</span>
+                        <span class="quest-tag">Bridge</span>
+                    </div>
+                    <div class="quest-footer">
+                        <span>ID: #V-8800</span>
+                        <span>Complete</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 Verifi Foundation.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

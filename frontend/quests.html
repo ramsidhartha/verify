@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Board - Verifi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="45" stroke="url(#lg1)" stroke-width="4" />
+                        <path d="M30 50 L45 65 L70 35" stroke="url(#lg1)" stroke-width="6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#8B5CF6" />
+                                <stop offset="100%" stop-color="#06B6D4" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">Verifi</span>
+            </a>
+            <div class="navbar-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="quests.html" class="nav-link active">Quests</a>
+                <a href="submit.html" class="nav-link">Submit Claim</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="btn btn-secondary btn-sm"><span class="wallet-icon">◈</span> Connect Wallet</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header-flex">
+                <div class="header-content">
+                    <h1>Quest <span class="text-gradient">Board</span></h1>
+                    <p>Verify claims, earn XP, and build your reputation</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">4</span>
+                        <span class="stat-text">Open Quests</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">2,850</span>
+                        <span class="stat-text">Total XP Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search quests..." class="search-input">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Open</button>
+                    <button class="filter-tab">In Progress</button>
+                    <button class="filter-tab">Completed</button>
+                </div>
+                <select class="form-select category-filter">
+                    <option value="">All Categories</option>
+                    <option>Smart Contracts</option>
+                    <option>AI/ML</option>
+                    <option>Cryptography</option>
+                    <option>Infrastructure</option>
+                </select>
+            </div>
+
+            <!-- Quest Grid -->
+            <div class="quest-grid">
+                <!-- Quest Card 1 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-green">Open</span>
+                            <span class="difficulty-badge"
+                                style="border-color: #8b5cf6; color: #8b5cf6;">Advanced</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+500 XP</span>
+                            <span class="token-reward">🪙 50</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">Built a DeFi Lending Protocol</h3>
+                    <p class="quest-description">Developed a fully functional lending protocol with flash loans,
+                        collateralization, and liquidation mechanisms on Ethereum.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Solidity</span>
+                        <span class="quest-tag">DeFi</span>
+                        <span class="quest-tag">ERC-20</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=alex" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">alex.eth</span>
+                                <span class="submitter-trust">Trust: 85</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">0/3 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quest Card 2 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-orange">In Progress</span>
+                            <span class="difficulty-badge"
+                                style="border-color: #f59e0b; color: #f59e0b;">Intermediate</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+350 XP</span>
+                            <span class="token-reward">🪙 35</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">ML Model for NFT Price Prediction</h3>
+                    <p class="quest-description">Created a machine learning model that predicts NFT floor prices with
+                        87% accuracy using historical data and sentiment analysis.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Python</span>
+                        <span class="quest-tag">TensorFlow</span>
+                        <span class="quest-tag">NFT</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=datawhiz" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">datawhiz.lens</span>
+                                <span class="submitter-trust">Trust: 72</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">1/3 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quest Card 3 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-green">Open</span>
+                            <span class="difficulty-badge" style="border-color: #ec4899; color: #ec4899;">Expert</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+750 XP</span>
+                            <span class="token-reward">🪙 100</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">Zero-Knowledge Proof Implementation</h3>
+                    <p class="quest-description">Implemented a ZK-SNARK circuit for private voting on-chain using Circom
+                        and SnarkJS.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">ZK-SNARKs</span>
+                        <span class="quest-tag">Circom</span>
+                        <span class="quest-tag">Privacy</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=zkmaster" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">zkmaster.eth</span>
+                                <span class="submitter-trust">Trust: 94</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">0/5 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quest Card 4 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-purple">Completed</span>
+                            <span class="difficulty-badge"
+                                style="border-color: #8b5cf6; color: #8b5cf6;">Advanced</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+600 XP</span>
+                            <span class="token-reward">🪙 60</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">Cross-Chain Bridge Development</h3>
+                    <p class="quest-description">Built a secure cross-chain bridge between Ethereum and Polygon using
+                        LayerZero.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">LayerZero</span>
+                        <span class="quest-tag">Solidity</span>
+                        <span class="quest-tag">Cross-chain</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=bridge" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">bridgebuilder.eth</span>
+                                <span class="submitter-trust">Trust: 88</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">3/3 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quest Card 5 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-green">Open</span>
+                            <span class="difficulty-badge"
+                                style="border-color: #f59e0b; color: #f59e0b;">Intermediate</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+400 XP</span>
+                            <span class="token-reward">🪙 40</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">DAO Governance Framework</h3>
+                    <p class="quest-description">Developed a modular governance framework with delegation, timelock, and
+                        multi-sig capabilities.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">Governance</span>
+                        <span class="quest-tag">DAO</span>
+                        <span class="quest-tag">Solidity</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=govguru" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">govguru.eth</span>
+                                <span class="submitter-trust">Trust: 79</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">0/3 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quest Card 6 -->
+                <a href="task.html" class="quest-card card">
+                    <div class="quest-header">
+                        <div class="quest-meta">
+                            <span class="badge badge-orange">In Progress</span>
+                            <span class="difficulty-badge"
+                                style="border-color: #8b5cf6; color: #8b5cf6;">Advanced</span>
+                        </div>
+                        <div class="quest-rewards">
+                            <span class="xp-reward">+550 XP</span>
+                            <span class="token-reward">🪙 55</span>
+                        </div>
+                    </div>
+                    <h3 class="quest-title">AI-Powered Smart Contract Auditor</h3>
+                    <p class="quest-description">Built an AI tool that analyzes Solidity code for common vulnerabilities
+                        and suggests fixes.</p>
+                    <div class="quest-tags">
+                        <span class="quest-tag">GPT-4</span>
+                        <span class="quest-tag">Security</span>
+                        <span class="quest-tag">Solidity</span>
+                    </div>
+                    <div class="quest-footer">
+                        <div class="quest-submitter">
+                            <img src="https://api.dicebear.com/7.x/identicon/svg?seed=auditai" alt=""
+                                class="submitter-avatar">
+                            <div class="submitter-info">
+                                <span class="submitter-name">auditai.lens</span>
+                                <span class="submitter-trust">Trust: 91</span>
+                            </div>
+                        </div>
+                        <div class="quest-progress">
+                            <span class="progress-text">2/4 verified</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 Verifi. Built for B3 Hackathon.</p>
+                <div class="footer-badges">
+                    <span class="tech-badge">Web3</span>
+                    <span class="tech-badge">AI</span>
+                    <span class="tech-badge">ZK</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

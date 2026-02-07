@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Status - Verifi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        /* Specific styles for Claim Tracking */
+        .status-header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 40px 0;
+            margin-bottom: 32px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-top: 24px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 75%;
+            /* Example state */
+        }
+
+        .subtask-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .subtask-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+
+        .certificate-card {
+            background: #F8FAFC;
+            /* Very light slate */
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--success);
+        }
+
+        .cert-hash {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 16px 0;
+            color: var(--text-secondary);
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            background: var(--bg-tertiary);
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Timeline Connector */
+        .timeline-box {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <!-- Navigating back to overview for context -->
+                <span class="logo-text">Verifi Protocol</span>
+            </a>
+            <div class="navbar-links">
+                <a href="../index.html" class="nav-link">Overview</a>
+                <a href="quests.html" class="nav-link">Task Marketplace</a>
+                <a href="submit.html" class="nav-link">New Request</a>
+                <a href="profile.html" class="nav-link">Identity</a>
+            </div>
+            <div class="navbar-actions">
+                <div style="font-size: 0.85rem; color: var(--text-secondary); margin-right: 12px;">connected as
+                    0x12...89</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-container" style="padding-top: 64px; background: var(--bg-primary);">
+
+        <!-- Status Header -->
+        <div class="status-header">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <span class="badge badge-purple">Verification in Progress</span>
+                            <span style="font-size: 0.85rem; color: var(--text-tertiary);">ID: #C-99210</span>
+                        </div>
+                        <h1 style="font-size: 2rem; margin-bottom: 8px;">Zero-Knowledge Rollup Compression Benchmark
+                        </h1>
+                        <p style="font-size: 1rem; color: var(--text-secondary);">
+                            Claim: "Compression ratio > 40x on transaction batches > 1MB using modified DEFLATE."
+                        </p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">75%</div>
+                        <div style="font-size: 0.85rem; color: var(--text-tertiary); text-transform: uppercase;">
+                            Confidence Score</div>
+                    </div>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary);">
+                    <span>3 of 4 Verification Tasks Completed</span>
+                    <span>Est. completion: 2 hours</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px;">
+
+                <!-- Left Column: Tasks -->
+                <div class="tasks-section">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                        Verification Plan
+                        <span class="ai-badge">🤖 AI Generated</span>
+                    </h3>
+
+                    <!-- Task 1: Completed -->
+                    <div class="subtask-card">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4 style="font-size: 1rem; margin: 0;">Reproduce Compression Ratio</h4>
+                                <span class="badge badge-green" style="font-size: 0.7rem;">Verified</span>
+                            </div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Run benchmark script
+                                on standard corpus (Calgary, Silesia).</p>
+                            <div class="subtask-meta">
+                                <span>Build: Passing</span>
+                                <span>Validators: 5/5</span>
+                            </div>
+                        </div>
+                        <div style="color: var(--success);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round">
+                                </polyline>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Task 2: Completed -->
+                    <div class="subtask-card">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4 style="font-size: 1rem; margin: 0;">Code Correctness Analysis</h4>
+                                <span class="badge badge-green" style="font-size: 0.7rem;">Verified</span>
+                            </div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Static analysis for
+                                memory safety and buffer overflows.</p>
+                            <div class="subtask-meta">
+                                <span>Vulns found: 0</span>
+                                <span>Validators: 3/3</span>
+                            </div>
+                        </div>
+                        <div style="color: var(--success);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round">
+                                </polyline>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Task 3: In Progress -->
+                    <div class="subtask-card" style="border-left: 4px solid var(--primary);">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4 style="font-size: 1rem; margin: 0;">Performance Profiling</h4>
+                                <span class="badge badge-purple" style="font-size: 0.7rem;">In Progress</span>
+                            </div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Execution time
+                                measurement on constrained hardware (Raspberry Pi 4).</p>
+                            <div class="subtask-meta">
+                                <span>Validators: 2/5 (Reporting)</span>
+                            </div>
+                        </div>
+                        <div class="spinner"
+                            style="width: 20px; height: 20px; border: 2px solid var(--border-subtle); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite;">
+                        </div>
+                    </div>
+
+                    <!-- Task 4: Pending -->
+                    <div class="subtask-card" style="opacity: 0.7;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4 style="font-size: 1rem; margin: 0;">Final Consensus</h4>
+                                <span class="badge badge-cyan" style="font-size: 0.7rem;">Pending</span>
+                            </div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Aggregation of
+                                validator signatures and reputation weighting.</p>
+                        </div>
+                    </div>
+
+                    <!-- Success State (Hidden by default, shown for demo structure) -->
+                    <div class="certificate-card" style="margin-top: 48px;">
+                        <div class="certificate-icon">🏅</div>
+                        <h3 style="margin-bottom: 8px;">Verification Complete</h3>
+                        <p style="color: var(--text-primary);">This technical claim has been independently verified by
+                            the Verifi Network.</p>
+
+                        <div class="cert-hash">
+                            0x71c...92f1
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 16px;">
+                            <button class="btn btn-primary">Download Certificate</button>
+                            <button class="btn btn-outline">View On-Chain Proof</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Summary -->
+                <div class="summary-section">
+                    <div class="card sidebar-card" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1rem; margin-bottom: 16px;">Claim Metadata</h3>
+
+                        <div style="margin-bottom: 16px;">
+                            <div
+                                style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 4px;">
+                                Submitted By</div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div style="width: 24px; height: 24px; background: #e5e7eb; border-radius: 50%;"></div>
+                                <span style="font-weight: 500;">alex_dev.eth</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <div
+                                style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 4px;">
+                                Artifacts</div>
+                            <a href="#" style="display: block; font-size: 0.9rem; margin-bottom: 4px;">📂
+                                compression-lib-v2</a>
+                            <a href="#" style="display: block; font-size: 0.9rem;">📄 Benchmarks.log</a>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <div
+                                style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 4px;">
+                                Environment</div>
+                            <div style="font-size: 0.9rem;">Rust 1.75, x86_64, Linux</div>
+                        </div>
+                    </div>
+
+                    <div class="card sidebar-card">
+                        <h3 style="font-size: 1rem; margin-bottom: 16px;">Network Stats</h3>
+
+                        <div
+                            style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Participating Validators</span>
+                            <span style="font-weight: 600;">13</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Reputation Staked</span>
+                            <span style="font-weight: 600;">1,250 REP</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Est. Reliability</span>
+                            <span style="font-weight: 600; color: var(--success);">High</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+
+</html>

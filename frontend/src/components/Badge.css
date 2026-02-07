@@ -1,0 +1,19 @@
+.badge-icon {
+    display: inline-flex;
+    margin-right: 2px;
+}
+
+.badge-size-sm {
+    padding: 2px 6px;
+    font-size: 0.65rem;
+}
+
+.badge-size-md {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+}
+
+.badge-size-lg {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.85rem;
+}

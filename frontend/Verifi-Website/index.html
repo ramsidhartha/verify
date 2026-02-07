@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verifi - Decentralized Verification Protocol for Technical Claims">
+    <title>Verifi - Verification Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="logo-text">Verifi Protocol</span>
+            </a>
+            <div class="navbar-links">
+                <a href="index.html" class="nav-link active">Overview</a>
+                <a href="pages/quests.html" class="nav-link">Task Marketplace</a>
+                <a href="pages/submit.html" class="nav-link">New Request</a>
+                <a href="pages/profile.html" class="nav-link">Identity</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="btn btn-secondary btn-sm">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                Verifi Protocol v1.0
+            </div>
+
+            <h1 class="hero-title">
+                Decentralized Verification<br>
+                Infrastructure
+            </h1>
+
+            <p class="hero-subtitle">
+                A protocol for validating technical claims and generating on-chain reputation through AI-assisted
+                consensus.
+            </p>
+
+            <div class="hero-actions">
+                <a href="pages/submit.html" class="btn btn-primary btn-lg">
+                    Submit Request
+                </a>
+                <a href="pages/quests.html" class="btn btn-secondary btn-lg">
+                    View Tasks
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value">2,450+</span>
+                    <span class="stat-label">Verified Claims</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">890</span>
+                    <span class="stat-label">Active Nodes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">$1.2M</span>
+                    <span class="stat-label">Value Secured</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Section -->
+    <section class="section flow-section">
+        <div class="container">
+            <div class="section-header" style="text-align:center; margin-bottom: 48px;">
+                <h2>Protocol Architecture</h2>
+                <p>Consensus mechanism overview</p>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon">📝</div>
+                    <div class="flow-content">
+                        <h4>Submission</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Claim data is hashed and anchored
+                            on-chain.</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">⚙️</div>
+                    <div class="flow-content">
+                        <h4>AI Analysis</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">LLMs generate verification vectors.
+                        </p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">🔍</div>
+                    <div class="flow-content">
+                        <h4>Peer Review</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Network participants validate
+                            evidence.</p>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">⚖️</div>
+                    <div class="flow-content">
+                        <h4>Consensus</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Reputation scores are updated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 48px;">
+                <h2>Core Capabilities</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Immutable Records</h3>
+                    <p>All verification data is stored on decentralized storage (IPFS/Arweave) with on-chain proofs.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Assisted Context</h3>
+                    <p>Automated analysis of GitHub repositories and smart contracts to aid human verifiers.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Sybil Resistance</h3>
+                    <p>Reputation-weighted voting ensures network integrity and prevents malicious collusion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>Verifi Protocol</h4>
+                    <p class="footer-tagline">Open Infrastructure for Technical Trust.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Protocol</h4>
+                        <a href="pages/quests.html">Marketplace</a>
+                        <a href="pages/submit.html">New Request</a>
+                        <a href="pages/profile.html">Identity</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Developers</h4>
+                        <a href="#">Documentation</a>
+                        <a href="#">Whitepaper</a>
+                        <a href="#">Github</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Governance</h4>
+                        <a href="#">DAO Dashboard</a>
+                        <a href="#">Proposals</a>
+                        <a href="#">Treasury</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Verifi Foundation.</p>
+                <div class="footer-badges">
+                    <span>v1.0.4 (Mainnet)</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

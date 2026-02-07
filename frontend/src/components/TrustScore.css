@@ -1,0 +1,47 @@
+.trust-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trust-score {
+    position: relative;
+}
+
+.trust-score-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.trust-score-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.trust-score-bg {
+    stroke: var(--progress-empty);
+}
+
+.trust-score-progress {
+    transition: stroke-dasharray 1s ease;
+    filter: drop-shadow(0 0 8px var(--score-color));
+}
+
+.trust-score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.trust-score-label {
+    margin-top: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}

@@ -1,0 +1,398 @@
+.task-execution-page {
+    padding-top: 100px;
+    padding-bottom: var(--space-3xl);
+    min-height: 100vh;
+}
+
+.breadcrumb {
+    margin-bottom: var(--space-xl);
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-purple-light);
+}
+
+.task-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+/* Claim Info */
+.claim-info {
+    margin-bottom: var(--space-xl);
+}
+
+.claim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+    gap: var(--space-lg);
+}
+
+.claim-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.claim-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.claim-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.claim-rewards-box {
+    text-align: right;
+    padding: var(--space-md);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border: 1px solid var(--accent-green);
+    border-radius: var(--radius-md);
+}
+
+.reward-large {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+.reward-token {
+    font-size: 0.9rem;
+    color: var(--accent-orange);
+}
+
+.claim-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+}
+
+.evidence-links h4 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+}
+
+.evidence-list {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.evidence-item {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    color: var(--accent-cyan-light);
+    transition: all var(--transition-fast);
+}
+
+.evidence-item:hover {
+    border-color: var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.1);
+}
+
+/* Active Task */
+.active-task {
+    padding: var(--space-2xl);
+}
+
+.active-task-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.task-type-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent-purple-light);
+    margin-bottom: var(--space-sm);
+}
+
+.active-task-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+}
+
+.active-task-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Checklist */
+.checklist {
+    margin-bottom: var(--space-xl);
+}
+
+.checklist h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.checklist-item:hover {
+    border-color: var(--accent-purple);
+}
+
+.checklist-item.completed {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent-green);
+}
+
+.checklist-item input {
+    display: none;
+}
+
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-primary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--accent-green);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.checklist-item.completed .checkmark {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--bg-primary);
+}
+
+.check-text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.checklist-item.completed .check-text {
+    color: var(--text-primary);
+}
+
+/* Notes */
+.notes-section {
+    margin-bottom: var(--space-xl);
+}
+
+.notes-section h4 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+}
+
+/* Task Actions */
+.task-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: flex-end;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-primary);
+}
+
+/* Sidebar */
+.task-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* Progress Card */
+.progress-card {
+    text-align: center;
+}
+
+.progress-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-lg);
+}
+
+.progress-circle-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent-green) calc(var(--progress) * 1%),
+            var(--progress-empty) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: var(--bg-card);
+    border-radius: 50%;
+}
+
+.progress-value {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.progress-detail {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+}
+
+/* Task List */
+.task-list h3 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+}
+
+.task-item {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.task-item:hover,
+.task-item.active {
+    border-color: var(--accent-purple);
+}
+
+.task-item.active {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.task-item.completed {
+    border-color: var(--accent-green);
+}
+
+.task-status-icon {
+    font-size: 1rem;
+    margin-right: var(--space-sm);
+}
+
+.task-item-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+}
+
+.task-item-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.task-item-progress {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Submitter Card */
+.submitter-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+}
+
+.submitter-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.submitter-avatar-lg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+}
+
+.submitter-name-lg {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.submitter-trust-lg {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.trust-value {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .task-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .task-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .claim-header {
+        flex-direction: column;
+    }
+
+    .claim-rewards-box {
+        text-align: left;
+        width: 100%;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .task-actions .btn {
+        width: 100%;
+    }
+}
