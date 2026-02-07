@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-e737dd9e13e757ce286a8d7f11bb33f5c6220ac0",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/VerifiTrust.sol": "project/contracts/VerifiTrust.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/VerifiTrust.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n/**\r\n * @title VerifiTrust\r\n * @dev Handles Validator Reputation and Verification Proofs\r\n * Focus: Immutability, Incentives, Trust\r\n */\r\ncontract VerifiTrust {\r\n\r\n    // --- STRUCTS (The Schema) ---\r\n\r\n    // 1. Validator Profile\r\n    // Stores the identity and their accumulated trust score.\r\n    struct Validator {\r\n        address wallet;         // \"Validator identity (wallet)\"\r\n        uint256 reputation;     // \"Reputation update\" (Accumulates over time)\r\n        uint256 totalTasksCompleted; // To track experience\r\n        bool isActive;          // Is this validator allowed to work?\r\n    }\r\n\r\n    // 2. Verification Record\r\n    // Stores the permanent proof of work.\r\n    struct Verification {\r\n        uint256 taskId;         // \"Task ID\" (Links to the off-chain job)\r\n        string evidenceHash;    // \"Evidence hash\" (IPFS/Cloud link to logs/screenshots)\r\n        bool outcome;           // \"Validation outcome\" (Verified vs Rejected)\r\n        uint256 timestamp;      // When did it happen?\r\n    }\r\n\r\n    // --- STATE VARIABLES (The Database) ---\r\n\r\n    // Look up a Validator by their address\r\n    mapping(address => Validator) public validators;\r\n\r\n    // Look up validations for a specific Task ID\r\n    // One task might be validated by multiple people\r\n    mapping(uint256 => Verification[]) public taskValidations;\r\n\r\n    // --- EVENTS (The \"Off-chain\" Logs) ---\r\n    // This allows the Frontend to see updates without querying the blockchain constantly.\r\n    event ValidatorRegistered(address indexed validator);\r\n    event ProofSubmitted(uint256 indexed taskId, address indexed validator, bool outcome, string evidenceHash);\r\n    event ReputationIncreased(address indexed validator, uint256 newScore);\r\n\r\n    // Constructor (Runs once when you deploy)\r\n    constructor() {\r\n        // You (the deployer) are the first admin\r\n    }\r\n\r\n    // --- FUNCTIONS (The Logic) ---\r\n\r\n    // 1. Join the Network\r\n    // Anyone can become a validator (Permissionless), but they start with 0 trust.\r\n    function registerValidator() external {\r\n        require(!validators[msg.sender].isActive, \"Already registered\");\r\n\r\n        validators[msg.sender] = Validator({\r\n            wallet: msg.sender,\r\n            reputation: 0,           // Start at zero\r\n            totalTasksCompleted: 0,\r\n            isActive: true\r\n        });\r\n\r\n        emit ValidatorRegistered(msg.sender);\r\n    }\r\n\r\n    // 2. Submit Proof & Earn Reputation\r\n    // This is the CORE function. It connects the \"Work\" to the \"Reward\".\r\n    // It takes the Task ID, the IPFS Hash (Evidence), and their Verdict (True/False).\r\n    function submitProof(uint256 _taskId, string calldata _evidenceHash, bool _outcome) external {\r\n        // Check: Must be a registered validator\r\n        require(validators[msg.sender].isActive, \"Not a registered validator\");\r\n\r\n        // 1. Record the Proof (Immutability)\r\n        taskValidations[_taskId].push(Verification({\r\n            taskId: _taskId,\r\n            evidenceHash: _evidenceHash, // The \"Pointer to Truth\"\r\n            outcome: _outcome,\r\n            timestamp: block.timestamp\r\n        }));\r\n\r\n        // 2. Update Reputation (Incentives)\r\n        // Simple Logic: +10 points for doing work.\r\n        // In V2, you can make this complex (e.g., only pay if others agree).\r\n        validators[msg.sender].reputation += 10;\r\n        validators[msg.sender].totalTasksCompleted += 1;\r\n\r\n        // 3. Emit Event (Transparency)\r\n        emit ProofSubmitted(_taskId, msg.sender, _outcome, _evidenceHash);\r\n        emit ReputationIncreased(msg.sender, validators[msg.sender].reputation);\r\n    }\r\n\r\n    // Helper: Read all validations for a task\r\n    function getValidations(uint256 _taskId) external view returns (Verification[] memory) {\r\n        return taskValidations[_taskId];\r\n    }\r\n}"
+      }
+    }
+  }
+}
