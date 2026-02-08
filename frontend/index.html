@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verifi Protocol - Decentralized Verification Infrastructure</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <a href="index.html" class="navbar-logo">
             <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2"/>
-                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="16" cy="16" r="14" stroke="#0ea5e9" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
             </svg>
             <span>Verifi Protocol</span>
         </a>
@@ -22,14 +25,15 @@
             <a href="new-request.html">New Request</a>
             <a href="identity.html">Identity</a>
         </div>
-        <button class="btn btn-secondary">Connect Wallet</button>
+        <button class="btn btn-secondary" data-wallet-btn>Connect Wallet</button>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <span class="hero-badge">Verifi Protocol v1.0</span>
         <h1>Decentralized Verification Infrastructure</h1>
-        <p>A protocol for validating technical claims and generating on-chain reputation through AI-assisted consensus.</p>
+        <p>A protocol for validating technical claims and generating on-chain reputation through AI-assisted consensus.
+        </p>
         <div class="hero-buttons">
             <a href="new-request.html" class="btn btn-primary">Submit Request</a>
             <a href="marketplace.html" class="btn btn-secondary">View Tasks</a>
@@ -148,5 +152,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Web3 Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
+    <script src="js/web3.js"></script>
 </body>
+
 </html>
