@@ -7,6 +7,5 @@ pytest>=7.0.0
 fastapi>=0.109.0
 uvicorn>=0.27.0
 
-# LLM clients (optional - install as needed)
-# openai>=1.0.0
-# anthropic>=0.20.0
+# AI
+google-generativeai>=0.8.0

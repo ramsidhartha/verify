@@ -6,10 +6,16 @@ Endpoints for submitting and tracking claims.
 
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
+import os
 
 from ..schemas import ClaimSubmit, ClaimResponse, ClaimStatus
 from ..services.database import db
-from ..services.ai_core import process_claim
+
+# Use Gemini if API key is set, otherwise fall back to mock
+if os.getenv('GEMINI_API_KEY'):
+    from ..services.gemini import analyze_claim_full as process_claim_ai
+else:
+    from ..services.ai_core import process_claim as process_claim_ai
 
 
 router = APIRouter()
@@ -30,7 +36,7 @@ async def submit_claim(claim: ClaimSubmit):
         db.create_user(claim.wallet)
     
     # Process through AI Core
-    result = process_claim(claim.claim_text, claim.context)
+    result = process_claim_ai(claim.claim_text, claim.context)
     
     # Store in database
     claim_record = db.create_claim(
