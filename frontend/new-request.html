@@ -125,8 +125,20 @@
                 </div>
 
                 <div style="display: flex; gap: 16px; margin-top: 24px; justify-content: center;">
-                    <button class="btn btn-secondary">Save Draft</button>
-                    <button class="btn btn-primary">Publish Claim</button>
+                    <button class="btn btn-secondary" type="button">Save Draft</button>
+                    <button class="btn btn-primary" type="button" id="submitClaimBtn">Publish Claim</button>
+                </div>
+
+                <!-- Result Modal -->
+                <div id="resultModal"
+                    style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+                    <div class="card" style="max-width: 600px; max-height: 80vh; overflow-y: auto;">
+                        <h3 style="margin-bottom: 16px;">✅ Claim Submitted Successfully</h3>
+                        <p style="margin-bottom: 16px;">AI has generated the following verification tasks:</p>
+                        <div id="tasksList"></div>
+                        <button class="btn btn-primary" onclick="window.location.href='marketplace.html'"
+                            style="margin-top: 16px;">View in Marketplace</button>
+                    </div>
                 </div>
             </div>
 
@@ -181,6 +193,77 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        document.getElementById('submitClaimBtn').addEventListener('click', async () => {
+            const wallet = getWallet();
+            if (!wallet) {
+                showToast('Please connect your wallet first', 'error');
+                connectWallet();
+                return;
+            }
+
+            // Get form values
+            const title = document.querySelector('input[placeholder*="Sorting algorithm"]').value;
+            const description = document.querySelector('textarea[placeholder*="Describe exactly"]').value;
+            const repo = document.querySelector('input[placeholder*="github.com"]').value;
+
+            if (!title || !description) {
+                showToast('Please fill in the title and description', 'error');
+                return;
+            }
+
+            // Build context from form
+            const claimTypes = [];
+            document.querySelectorAll('.checkbox-grid input:checked').forEach(cb => {
+                claimTypes.push(cb.nextElementSibling.textContent.trim());
+            });
+            const context = `Types: ${claimTypes.join(', ')}. Repository: ${repo || 'Not provided'}`;
+
+            // Show loading
+            const btn = document.getElementById('submitClaimBtn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            try {
+                const result = await api.submitClaim({
+                    claim_text: `${title}: ${description}`,
+                    author_wallet: wallet,
+                    context: context
+                });
+
+                // Show result modal
+                const modal = document.getElementById('resultModal');
+                const tasksList = document.getElementById('tasksList');
+                tasksList.innerHTML = result.tasks.map(task => `
+                    <div style="background: var(--gray-50); padding: 12px; border-radius: 8px; margin-bottom: 8px;">
+                        <strong>${task.description}</strong>
+                        <p style="font-size: 13px; color: var(--gray-600); margin-top: 4px;">${task.instructions}</p>
+                        <div style="font-size: 12px; color: var(--gray-500); margin-top: 8px;">
+                            Est. ${task.estimated_minutes || 30} mins • ${task.min_validators || 2} validators needed
+                        </div>
+                    </div>
+                `).join('');
+                modal.style.display = 'flex';
+
+                showToast('Claim submitted successfully!', 'success');
+            } catch (error) {
+                showToast('Failed to submit claim. Is the backend running?', 'error');
+                console.error(error);
+            } finally {
+                btn.textContent = 'Publish Claim';
+                btn.disabled = false;
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('resultModal').addEventListener('click', (e) => {
+            if (e.target.id === 'resultModal') {
+                e.target.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

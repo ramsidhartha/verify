@@ -138,6 +138,89 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Static demo tasks (these show when API is not running)
+        const demoTasks = [
+            { task_id: 'V-8921', description: 'Protocol Implementation: DeFi Lending', instructions: 'Verification of lending logic, liquidation params, and interest rate models for V2 deployment.', status: 'pending', required_skills: ['Solidity', 'Math', 'Security'], reward: 500 },
+            { task_id: 'V-8945', description: 'ML Model Validation: NFT Pricing', instructions: 'Audit of inference pipeline and data sanitization methods for on-chain oracle.', status: 'in_progress', required_skills: ['Python', 'TensorFlow', 'Data Science'], reward: 350 },
+            { task_id: 'V-9012', description: 'ZK-Circuit: Private Voting', instructions: 'Correctness proof for Groth16 verify function and nullifier generation.', status: 'pending', required_skills: ['Circom', 'Cryptography'], reward: 750 },
+            { task_id: 'V-8800', description: 'Cross-Chain Bridge Audit', instructions: 'Post-deployment verification of LayerZero endpoint configuration.', status: 'completed', required_skills: ['Infrastructure', 'Bridge'], reward: 0 }
+        ];
+
+        function renderTasks(tasks) {
+            const grid = document.querySelector('.task-grid');
+            grid.innerHTML = tasks.map(task => `
+                <a href="task-detail.html?id=${task.task_id}" class="card task-card">
+                    <div class="task-card-header">
+                        <div>
+                            <span class="badge ${task.status === 'pending' ? 'badge-open' : task.status === 'in_progress' ? 'badge-reviewing' : 'badge-closed'}">
+                                ${task.status === 'pending' ? 'Open' : task.status === 'in_progress' ? 'Reviewing' : 'Archived'}
+                            </span>
+                        </div>
+                    </div>
+                    <h3>${task.description}</h3>
+                    <p>${task.instructions}</p>
+                    <div>
+                        ${(task.required_skills || []).map(skill => `<span class="tag">${skill}</span>`).join('')}
+                    </div>
+                    <div class="task-card-footer">
+                        <span class="task-id">ID: #${task.task_id}</span>
+                        <span class="task-reward">${task.reward ? 'Reward: ' + task.reward + ' REP' : 'Complete'}</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        async function loadTasks() {
+            try {
+                const tasks = await api.getTasks();
+                if (tasks.length > 0) {
+                    renderTasks(tasks);
+                } else {
+                    renderTasks(demoTasks);
+                }
+            } catch (error) {
+                console.log('API not available, showing demo tasks');
+                renderTasks(demoTasks);
+            }
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', loadTasks);
+
+        // Refresh button
+        document.querySelector('.btn-primary').addEventListener('click', async () => {
+            showToast('Refreshing tasks...', 'info');
+            await loadTasks();
+        });
+
+        // Filter tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.textContent.toLowerCase();
+                const cards = document.querySelectorAll('.task-card');
+                cards.forEach(card => {
+                    const badge = card.querySelector('.badge');
+                    if (filter === 'all') {
+                        card.style.display = '';
+                    } else if (filter === 'open' && badge.classList.contains('badge-open')) {
+                        card.style.display = '';
+                    } else if (filter === 'pending' && badge.classList.contains('badge-reviewing')) {
+                        card.style.display = '';
+                    } else if (filter === 'closed' && badge.classList.contains('badge-closed')) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
