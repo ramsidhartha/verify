@@ -65,29 +65,28 @@
         <h2>Protocol Architecture</h2>
         <p>Consensus mechanism overview</p>
 
-        <div class="protocol-flow">
-            <div class="protocol-step">
-                <div class="protocol-step-icon">📝</div>
-                <h4>Submission</h4>
-                <p>Claim data is hashed and anchored on-chain.</p>
-            </div>
-            <span class="protocol-arrow">→</span>
-            <div class="protocol-step">
-                <div class="protocol-step-icon">🤖</div>
-                <h4>AI Analysis</h4>
-                <p>LLMs generate verification vectors.</p>
-            </div>
-            <span class="protocol-arrow">→</span>
-            <div class="protocol-step">
-                <div class="protocol-step-icon">🔍</div>
-                <h4>Peer Review</h4>
-                <p>Network participants validate evidence.</p>
-            </div>
-            <span class="protocol-arrow">→</span>
-            <div class="protocol-step">
-                <div class="protocol-step-icon">✅</div>
-                <h4>Consensus</h4>
-                <p>Reputation scores are updated.</p>
+        <div class="protocol-3d-stage">
+            <div class="protocol-cube">
+                <div class="cube-face face-front">
+                    <div class="step-number">01</div>
+                    <h4>Submission</h4>
+                    <p>Claim data is hashed & anchored.</p>
+                </div>
+                <div class="cube-face face-right">
+                    <div class="step-number">02</div>
+                    <h4>AI Analysis</h4>
+                    <p>LLMs generate verification vectors.</p>
+                </div>
+                <div class="cube-face face-back">
+                    <div class="step-number">03</div>
+                    <h4>Peer Review</h4>
+                    <p>Network participants validate evidence.</p>
+                </div>
+                <div class="cube-face face-left">
+                    <div class="step-number">04</div>
+                    <h4>Consensus</h4>
+                    <p>Reputation scores update on-chain.</p>
+                </div>
             </div>
         </div>
 
@@ -95,17 +94,35 @@
         <div class="container">
             <div class="capabilities-grid">
                 <div class="card capability-card">
-                    <div class="capability-icon">🔒</div>
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
                     <h3>Immutable Records</h3>
                     <p>All verification data is stored on decentralized storage (IPFS/Arweave) with on-chain proofs.</p>
                 </div>
                 <div class="card capability-card">
-                    <div class="capability-icon">🤖</div>
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                            <path d="M12 12 2.1 12a10.01 10.01 0 0 0 1.5 5.5"></path>
+                            <path d="m12 12 5.5 5.5"></path>
+                        </svg>
+                    </div>
                     <h3>AI-Assisted Context</h3>
                     <p>Automated analysis of GitHub repositories and smart contracts to aid human verifiers.</p>
                 </div>
                 <div class="card capability-card">
-                    <div class="capability-icon">👥</div>
+                    <div class="capability-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
                     <h3>Sybil Resistance</h3>
                     <p>Reputation-weighted voting ensures network integrity and prevents malicious collusion.</p>
                 </div>
