@@ -229,7 +229,7 @@
             try {
                 const result = await api.submitClaim({
                     claim_text: `${title}: ${description}`,
-                    author_wallet: wallet,
+                    wallet: wallet,
                     context: context
                 });
 
